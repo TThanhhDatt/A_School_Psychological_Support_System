@@ -1,23 +1,52 @@
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
+* {
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #f0f9ff;
+  color: #1e293b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth fade-in animation */
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-in;
+  animation: fadeIn 0.4s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, #4F46E5, #06B6D4);
+/* Enhanced pulse animation for typing indicator */
+.animate-pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -25,10 +54,42 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #cbd5e1;
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #94a3b8;
+}
+
+/* Input and button transitions */
+input, button {
+  transition: all 0.3s ease;
+}
+
+/* Focus states for accessibility */
+input:focus-visible {
+  outline: none;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Smooth color palette */
+:root {
+  --color-primary-sky: #60a5fa;    /* sky-400 */
+  --color-primary-emerald: #34d399; /* emerald-400 */
+  --color-text-dark: #1e293b;       /* slate-800 */
+  --color-text-light: #475569;      /* slate-600 */
+  --color-bg-light: #f0f9ff;        /* sky-50 */
+  --color-border: #cbd5e1;          /* slate-200 */
 }
